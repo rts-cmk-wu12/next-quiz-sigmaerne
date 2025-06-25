@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+/* --- Font Setup --- */
+@font-face {
+  font-family: "Tanker";
+  src: url("/fonts/Tanker-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* --- Light Mode (Default) --- */
+:root {
+  --bg: #fbfbfe;
+  --text: #050315;
+  --primary: #2f27ce;
+  --secondary: #dedcff;
+  --accent: #433bff;
+
+  --font-main: "Tanker", sans-serif;
+}
+
+/* --- Dark Mode --- */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #010104;
+    --text: #ebe9fc;
+    --primary: #3a31d8;
+    --secondary: #020024;
+    --accent: #0600c2;
+  }
+}
+
+/* --- Base Styles --- */
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-main);
+}
