@@ -1,34 +1,41 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-import Link from "next/link";
+import React, { useEffect, useState } from "react";
 import Confetti from "react-confetti";
+import Link from "next/link";
 
-export default function ResultPage() {
-  const searchParams = useSearchParams();
-  const correct = searchParams.get("correct");
-  const total = searchParams.get("total");
+export default function ResultPage({ searchParams }) {
+  const [showConfetti, setShowConfetti] = useState(false);
+
+  const correct = searchParams.correct;
+  const total = searchParams.total;
+
+  useEffect(() => {
+    // Ensures this runs only on client
+    setShowConfetti(true);
+  }, []);
 
   return (
-    <>
-      <main className='min-h-screen bg-bg text-text flex items-center justify-center px-4 py-12 font-main'>
-        <Confetti className='w-full h-screen' />
+    <main className='min-h-screen bg-bg text-text flex items-center justify-center px-4 py-12 font-main relative overflow-hidden'>
+      {/* Only show confetti on client to prevent hydration error */}
+      {showConfetti && (
+        <Confetti className='w-full h-screen z-[-1] fixed top-0 left-0' />
+      )}
 
-        <div className='text-center flex flex-col items-center gap-6 z-[2] fixed'>
-          <h1 className='text-4xl text-primary'>🎉 Quiz færdig! 🎉</h1>
-          <p className='text-2xl text-center'>
-            Du fik{" "}
-            <span className='text-green-500 animate-glow'>{correct}</span> ud af{" "}
-            <span className='text-red-500 animate-glow'>{total}</span> rigtige
-          </p>
-          <Link
-            href='/'
-            className='mt-4 bg-primary hover:bg-accent hover:text-primary transition-colors duration-300 text-white py-2 px-6 rounded-full text-lg'
-          >
-            En quiz mere?
-          </Link>
-        </div>
-      </main>
-    </>
+      <div className='text-center flex flex-col items-center gap-6 z-10'>
+        <h1 className='text-4xl text-primary'>🥳 Quiz færdig! 🎉</h1>
+        <p className='text-2xl text-center'>
+          Du fik <span className='text-green-500 animate-glow'>{correct}</span>{" "}
+          ud af <span className='text-red-500 animate-glow'>{total}</span>{" "}
+          rigtige
+        </p>
+        <Link
+          href='/'
+          className='mt-4 bg-primary hover:bg-accent hover:text-primary transition-colors duration-300 text-white py-2 px-6 rounded-full text-lg'
+        >
+          En quiz mere?
+        </Link>
+      </div>
+    </main>
   );
 }
