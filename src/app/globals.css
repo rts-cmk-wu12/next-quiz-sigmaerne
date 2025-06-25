@@ -21,11 +21,11 @@
 }
 
 @theme inline {
-  --bg: var(--bg);
-  --text: var(--text);
-  --primary: var(--primary);
-  --secondary: var(--secondary);
-  --accent: var(--accent);
+  --color-background: var(--bg);
+  --color-text: var(--text);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+  --color-accent: var(--accent);
   --font-main: var(--font-main);
 }
 
