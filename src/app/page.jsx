@@ -11,11 +11,13 @@ export default function Home() {
   const [showError, setShowError] = useState(false);
   const [highlightCategory, setHighlightCategory] = useState(false);
 
-  // Clean, 2-line API fetch in client
   useEffect(() => {
     fetch("https://opentdb.com/api_category.php")
       .then((res) => res.json())
-      .then((data) => setCategories(data.trivia_categories));
+      .then((data) => setCategories(data.trivia_categories))
+      .catch(() => {
+        setShowError(true);
+      });
   }, []);
 
   const handleStartQuiz = (e) => {
