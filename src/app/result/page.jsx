@@ -1,23 +1,24 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Confetti from "react-confetti";
 import Link from "next/link";
 
 export default function ResultPage({ searchParams }) {
+  // ✅ Unwrap the searchParams Promise
+  const unwrappedParams = use(searchParams);
+  const correct = unwrappedParams.correct;
+  const total = unwrappedParams.total;
+
   const [showConfetti, setShowConfetti] = useState(false);
 
-  const correct = searchParams.correct;
-  const total = searchParams.total;
-
   useEffect(() => {
-    // Ensures this runs only on client
+    // Only show confetti on client
     setShowConfetti(true);
   }, []);
 
   return (
     <main className='min-h-screen bg-bg text-text flex items-center justify-center px-4 py-12 font-main relative overflow-hidden'>
-      {/* Only show confetti on client to prevent hydration error */}
       {showConfetti && (
         <Confetti className='w-full h-screen z-[-1] fixed top-0 left-0' />
       )}
