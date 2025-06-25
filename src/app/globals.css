@@ -11,17 +11,17 @@
 
 /* --- Light Mode (Default) --- */
 :root {
-  --bg: #fbfbfe;
-  --text: #050315;
-  --primary: #2f27ce;
-  --secondary: #dedcff;
-  --accent: #433bff;
+  --text: #090126;
+  --background: #fbfaff;
+  --primary: #3606fc;
+  --secondary: #fdae69;
+  --accent: #e1fc40;
 
   --font-main: "Tanker", sans-serif;
 }
 
 @theme inline {
-  --color-background: var(--bg);
+  --color-background: var(--background);
   --color-text: var(--text);
   --color-primary: var(--primary);
   --color-secondary: var(--secondary);
@@ -45,4 +45,36 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-main);
+}
+
+.custom-scroll::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 9999px; /* fully rounded */
+}
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background-color: var(--primary); /* uses your primary theme color */
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+/* Optional: scrollbar for Firefox */
+.custom-scroll {
+  scrollbar-color: var(--accent) transparent;
+  scrollbar-width: thin;
+}
+::selection {
+  background-color: var(--accent); /* or use a hex like #2fce56 */
+  color: white; /* optional: text color when selected */
+}
+
+/* Firefox uses a different pseudo-element */
+::-moz-selection {
+  background-color: var(--accent);
+  color: white;
 }

@@ -1,7 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Qu!zMe",
+  title: "QU!ZME",
   description: `Try me!
   Best Quiz App made by Mark & Peter`,
   icons: {
