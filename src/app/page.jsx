@@ -11,6 +11,7 @@ export default function Home() {
   const [showError, setShowError] = useState(false);
   const [highlightCategory, setHighlightCategory] = useState(false);
 
+  
   useEffect(() => {
     fetch("https://opentdb.com/api_category.php")
       .then((res) => res.json())
