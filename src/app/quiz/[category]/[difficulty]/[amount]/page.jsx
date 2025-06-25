@@ -68,8 +68,9 @@ export default function Quiz({ params }) {
   return (
     <main className='min-h-screen bg-bg text-text flex items-center justify-center px-4 py-12 font-main'>
       {error ? (
-        <p className='text-red-500 text-center text-xl'>
-          Kunne ikke hente spørgsmål. Prøv igen senere.
+        <p className='text-red-500 text-center mt-4'>
+          Kunne ikke hente kategorier. Tjek din internetforbindelse og prøv
+          igen.
         </p>
       ) : current ? (
         <div className='flex flex-col items-center gap-8 w-full max-w-xl'>

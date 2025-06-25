@@ -15,7 +15,10 @@ export default function Home() {
   useEffect(() => {
     fetch("https://opentdb.com/api_category.php")
       .then((res) => res.json())
-      .then((data) => setCategories(data.trivia_categories));
+      .then((data) => setCategories(data.trivia_categories))
+      .catch(() => {
+        setShowError(true); // reuse existing error state or add a new one
+      });
   }, []);
 
   const handleStartQuiz = (e) => {
