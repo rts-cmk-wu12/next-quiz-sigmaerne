@@ -20,6 +20,15 @@
   --font-main: "Tanker", sans-serif;
 }
 
+@theme inline {
+  --bg: var(--bg);
+  --text: var(--text);
+  --primary: var(--primary);
+  --secondary: var(--secondary);
+  --accent: var(--accent);
+  --font-main: var(--font-main);
+}
+
 /* --- Dark Mode --- */
 @media (prefers-color-scheme: dark) {
   :root {
