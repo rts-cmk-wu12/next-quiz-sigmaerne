@@ -68,7 +68,7 @@ export default function Quiz({ params }) {
   return (
     <main className='min-h-screen bg-bg text-text flex items-center justify-center px-4 py-12 font-main'>
       {error ? (
-        <p className='text-red-500 text-center mt-4'>
+        <p className='text-red-500 text-center text-lg'>
           Kunne ikke hente kategorier. Tjek din internetforbindelse og prøv
           igen.
         </p>
