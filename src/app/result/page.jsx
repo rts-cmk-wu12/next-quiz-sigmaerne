@@ -24,11 +24,12 @@ export default function ResultPage({ searchParams }) {
       )}
 
       <div className='text-center flex flex-col items-center gap-6 z-10'>
-        <h1 className='text-4xl text-primary'>🥳 Quiz færdig! 🎉</h1>
+        <h1 className='text-4xl text-primary breath-blue'>
+          🥳 Quiz færdig! 🎉
+        </h1>
         <p className='text-2xl text-center'>
-          Du fik <span className='text-green-500 animate-glow'>{correct}</span>{" "}
-          ud af <span className='text-red-500 animate-glow'>{total}</span>{" "}
-          rigtige
+          Du fik <span className='text-green-500 breath-green'>{correct}</span>{" "}
+          ud af <span className='text-red-500 breath-red'>{total}</span> rigtige
         </p>
         <Link
           href='/'

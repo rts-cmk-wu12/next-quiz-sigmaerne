@@ -30,14 +30,12 @@
 }
 
 /* --- Dark Mode --- */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #010104;
-    --text: #ebe9fc;
-    --primary: #3a31d8;
-    --secondary: #020024;
-    --accent: #0600c2;
-  }
+.dark {
+  --bg: #010104;
+  --text: #ebe9fc;
+  --primary: #3a31d8;
+  --secondary: #020024;
+  --accent: #0600c2;
 }
 
 /* --- Base Styles --- */
@@ -45,6 +43,7 @@ body {
   background-color: var(--bg);
   color: var(--text);
   font-family: var(--font-main);
+  transition: all 0.25s ease, color 0.5s ease;
 }
 
 .custom-scroll::-webkit-scrollbar {
@@ -77,4 +76,53 @@ body {
 ::-moz-selection {
   background-color: var(--accent);
   color: white;
+}
+
+@keyframes breath-green {
+  0%,
+  100% {
+    color: #22c55e; /* Tailwind green-500 */
+    text-shadow: none;
+  }
+  50% {
+    color: #4ade80; /* Lighter green */
+    text-shadow: 0 0 8px #4ade80, 0 0 6px #22c55e;
+  }
+}
+
+@keyframes breath-red {
+  0%,
+  100% {
+    color: #ef4444; /* Tailwind red-500 */
+    text-shadow: none;
+  }
+  50% {
+    color: #f87171; /* Lighter red */
+    text-shadow: 0 0 8px #f87171, 0 0 6px #ef4444;
+  }
+}
+@keyframes breath-blue {
+  0%,
+  100% {
+    color: #3a31d8; /* Base blue */
+    text-shadow: none;
+  }
+  50% {
+    color: #6c63ff; /* Lighter glowing blue */
+    text-shadow: 0 0 1px #6c63ff, 0 0 8px #3a31d8;
+  }
+}
+
+.breath-blue {
+  animation: breath-blue 2.5s ease-in-out infinite;
+}
+
+.breath-green {
+  animation: breath-green 2.5s ease-in-out infinite;
+  animation-delay: 1s;
+}
+
+.breath-red {
+  animation: breath-red 2.5s ease-in-out infinite;
+  animation-delay: 2s;
 }
