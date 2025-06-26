@@ -33,7 +33,7 @@ export default function Home() {
   };
 
   return (
-    <main className='flex items-center justify-center min-h-screen border-l border-r border-primary p-8'>
+    <main className='flex items-center justify-center min-h-screen'>
       <section className='flex justify-center flex-col w-full max-w-xl px-4'>
         <header className='mb-22 text-center'>
           <h1 className='text-9xl text-primary font-main'>Qu!zme</h1>
